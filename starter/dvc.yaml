@@ -6,4 +6,10 @@ stages:
     - preprocess/preprocess.py
     outs:
     - data/cleaned_census.csv
-
+  train_model:
+    cmd: python starter/train_model.py
+    deps:
+      - data/cleaned_census.csv
+      - starter/train_model.py
+    outs:
+      - model/trained_model.pkl

@@ -1,3 +1,5 @@
+import pickle
+
 # Script to train machine learning model.
 
 from sklearn.model_selection import train_test_split
@@ -43,4 +45,6 @@ precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
 print(f"precision: {precision}")
 print(f"recall: {recall}")
 print(f"fbeta: {fbeta}")
+pickle.dump(trained_model, open('model/trained_model.pkl', 'wb'))
+
 # add data slicing
