@@ -4,6 +4,7 @@ import pandas
 import pytest
 from starter.starter.ml.data import process_data
 
+
 @pytest.fixture(scope="session")
 def data():
     df = pandas.read_csv("data/cleaned_census.csv", low_memory=False)
@@ -12,24 +13,24 @@ def data():
 
 @pytest.fixture(scope="session")
 def model():
-    return pickle.load(open("model/trained_model.pkl", 'rb'))
+    return pickle.load(open("model/trained_model.pkl", "rb"))
 
 
 @pytest.fixture(scope="session")
 def encoder():
-    return pickle.load(open("model/encoder.pkl", 'rb'))
+    return pickle.load(open("model/encoder.pkl", "rb"))
 
 
 cat_features = [
-        "workclass",
-        "education",
-        "marital-status",
-        "occupation",
-        "relationship",
-        "race",
-        "sex",
-        "native-country",
-    ]
+    "workclass",
+    "education",
+    "marital-status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "native-country",
+]
 
 
 def test_pred_shape(data, model, encoder):
