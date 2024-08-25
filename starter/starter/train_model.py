@@ -51,5 +51,6 @@ print(f"precision: {precision}")
 print(f"recall: {recall}")
 print(f"fbeta: {fbeta}")
 pickle.dump(trained_model, open("model/trained_model.pkl", "wb"))
+pickle.dump(encoder, open("model/encoder.pkl", "wb"))
 
 # add data slicing

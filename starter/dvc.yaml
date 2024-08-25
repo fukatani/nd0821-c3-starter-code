@@ -13,3 +13,4 @@ stages:
       - starter/train_model.py
     outs:
       - model/trained_model.pkl
+      - model/encoder.pkl
