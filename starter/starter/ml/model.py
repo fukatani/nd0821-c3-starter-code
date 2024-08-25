@@ -1,3 +1,4 @@
+import sklearn.tree
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 
 
@@ -17,8 +18,9 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-
-    pass
+    model = sklearn.tree.DecisionTreeClassifier()
+    model.fit(X_train, y_train)
+    return model
 
 
 def compute_model_metrics(y, preds):
