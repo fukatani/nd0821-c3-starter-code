@@ -9,10 +9,10 @@ stages:
       size: 3974474
     - path: preprocess/preprocess.py
       hash: md5
-      md5: cdf28f703430a9f7b624d24861e3a3e3
-      size: 117
+      md5: 637354ffdc7e5392d15042552baea387
+      size: 166
     outs:
     - path: data/cleaned_census.csv
       hash: md5
-      md5: 1a2eae628f21a19ca41cae746324d16c
-      size: 3995925
+      md5: 4bc48bdd9356eac2d7fc99aec992d1c0
+      size: 3992932
