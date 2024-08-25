@@ -34,7 +34,12 @@ X_train, y_train, encoder, lb = process_data(
 # Proces the test data with the process_data function.
 
 X_test, y_test, _, _ = process_data(
-    test, categorical_features=cat_features, label="salary", training=False, encoder=encoder, lb=lb
+    test,
+    categorical_features=cat_features,
+    label="salary",
+    training=False,
+    encoder=encoder,
+    lb=lb,
 )
 
 # Train and save a model.
@@ -45,6 +50,6 @@ precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
 print(f"precision: {precision}")
 print(f"recall: {recall}")
 print(f"fbeta: {fbeta}")
-pickle.dump(trained_model, open('model/trained_model.pkl', 'wb'))
+pickle.dump(trained_model, open("model/trained_model.pkl", "wb"))
 
 # add data slicing

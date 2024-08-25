@@ -10,3 +10,5 @@ dvc==3.54.1
 dvc-gs
 jupyter
 ydata_profiling
+flake8
+black
