@@ -6,3 +6,5 @@ requests
 fastapi==0.112.2
 uvicorn
 gunicorn
+dvc==3.54.1
+dvc-gs
