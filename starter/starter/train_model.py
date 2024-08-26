@@ -52,9 +52,13 @@ print(f"recall: {recall}")
 print(f"fbeta: {fbeta}")
 pickle.dump(trained_model, open("model/trained_model.pkl", "wb"))
 pickle.dump(encoder, open("model/encoder.pkl", "wb"))
-metrics = {'precision': float(precision), 'recall': float(recall), 'fbeta': float(fbeta)}
-with open('model/train_metrics.yaml','w') as f:
-    yaml.dump(metrics, f, encoding='utf-8')
+metrics = {
+    "precision": float(precision),
+    "recall": float(recall),
+    "fbeta": float(fbeta),
+}
+with open("model/train_metrics.yaml", "w") as f:
+    yaml.dump(metrics, f, encoding="utf-8")
 
 # add data slicing
 for race in test["race"].unique():
@@ -68,9 +72,7 @@ for race in test["race"].unique():
         lb=lb,
     )
     y_pred = trained_model.predict(X_test)
-    precision, recall, fbeta = compute_model_metrics(
-        y_test, y_pred
-    )
+    precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
     print(f"race: {race}")
     print(f"precision: {precision}")
     print(f"recall: {recall}")
