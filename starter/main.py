@@ -43,11 +43,11 @@ async def exercise_function(data: Data):
             status_code=400, detail="hours-per-week must be between 0 and 168"
         )
     if data.race not in [
-        "white",
-        "black",
-        "asian-pac-islander",
-        "amer-indian-eskimo",
-        "other",
+        "White",
+        "Black",
+        "Asian-Pac-Islander",
+        "Amer-Indian-Eskimo",
+        "Other",
     ]:
         raise HTTPException(status_code=400, detail="Unexpected race")
 
