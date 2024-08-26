@@ -52,4 +52,4 @@ def test_inference():
     }
     r = client.post("/inference", json=json_body)
     assert r.status_code == 400
-    assert r.json() == {"detail": "capital-gain must not be negative"}
+    assert r.json()["salary"] == 0

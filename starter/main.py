@@ -1,6 +1,7 @@
 import pickle
 
 from fastapi import FastAPI, HTTPException
+import pandas
 from pydantic import BaseModel, Field
 
 from starter.starter.ml.data import process_data
@@ -61,10 +62,30 @@ async def exercise_function(data: Data):
         "sex",
         "native-country",
     ]
+
+    df = pandas.DataFrame(
+        {
+            'age': [data.age,],
+            'workclass': [data.workclass,],
+            'fnlgt': [data.fnlgt,],
+            'education': [data.education,],
+            'education-num': [data.education_num,],
+            'marital-status': [data.marital_status,],
+            'occupation': [data.occupation,],
+            'relationship': [data.relationship,],
+            'race': [data.race,],
+            'sex': [data.sex,],
+            'capital-gain': [data.capital_gain,],
+            'capital-loss': [data.capital_loss,],
+            'hours-per-week': [data.hours_per_week,],
+            'native-country': [data.native_country,],
+            # 'salary': ["",],
+         }
+    )
     X, _, _, _ = process_data(
-        data,
+        df,
         categorical_features=cat_features,
-        label="salary",
+        # label="salary",
         training=False,
         encoder=encoder,
         lb=None,
