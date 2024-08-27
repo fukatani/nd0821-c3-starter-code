@@ -4,7 +4,7 @@ from fastapi import FastAPI, HTTPException
 import pandas
 from pydantic import BaseModel, Field
 
-from starter.ml.data import process_data
+from training.ml.data import process_data
 
 app = FastAPI()
 model = pickle.load(open("model/trained_model.pkl", "rb"))

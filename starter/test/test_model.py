@@ -2,7 +2,7 @@ import pickle
 
 import pandas
 import pytest
-from starter.starter.ml.data import process_data
+from starter.training.ml.data import process_data
 
 
 @pytest.fixture(scope="session")
