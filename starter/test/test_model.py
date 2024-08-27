@@ -68,4 +68,4 @@ def test_encode_shape(data, encoder):
         encoder=encoder,
         lb=None,
     )
-    assert X.shape == (10, 109)
+    assert X.shape == (10, 108)
