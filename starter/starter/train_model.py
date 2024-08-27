@@ -1,3 +1,4 @@
+import pathlib
 import pickle
 
 # Script to train machine learning model.
@@ -61,19 +62,24 @@ with open("model/train_metrics.yaml", "w") as f:
     yaml.dump(metrics, f, encoding="utf-8")
 
 # add data slicing
-for race in test["race"].unique():
-    sliced_test = test[test["race"] == race]
-    X_test, y_test, _, _ = process_data(
-        sliced_test,
-        categorical_features=cat_features,
-        label="salary",
-        training=False,
-        encoder=encoder,
-        lb=lb,
-    )
-    y_pred = trained_model.predict(X_test)
-    precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
-    print(f"race: {race}")
-    print(f"precision: {precision}")
-    print(f"recall: {recall}")
-    print(f"fbeta: {fbeta}")
+with pathlib.Path("result/slice_output.txt").open("w") as f:
+    for race in test["race"].unique():
+        sliced_test = test[test["race"] == race]
+        X_test, y_test, _, _ = process_data(
+            sliced_test,
+            categorical_features=cat_features,
+            label="salary",
+            training=False,
+            encoder=encoder,
+            lb=lb,
+        )
+        y_pred = trained_model.predict(X_test)
+        precision, recall, fbeta = compute_model_metrics(y_test, y_pred)
+        print(f"race: {race}")
+        print(f"precision: {precision}")
+        print(f"recall: {recall}")
+        print(f"fbeta: {fbeta}")
+        f.write(f"race: {race}")
+        f.write(f"precision: {precision}")
+        f.write(f"recall: {recall}")
+        f.write(f"fbeta: {fbeta}")
