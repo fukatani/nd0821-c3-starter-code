@@ -1,1 +1,20 @@
-race:  Whiteprecision: 0.6064782908339077recall: 0.6404657933042213fbeta: 0.6230088495575221race:  Blackprecision: 0.5176470588235295recall: 0.6666666666666666fbeta: 0.5827814569536424race:  Asian-Pac-Islanderprecision: 0.6229508196721312recall: 0.5671641791044776fbeta: 0.59375race:  Otherprecision: 0.625recall: 0.8333333333333334fbeta: 0.7142857142857143race:  Amer-Indian-Eskimoprecision: 0.3recall: 0.375fbeta: 0.3333333333333333
+race:  White
+precision: 0.640302613480055
+recall: 0.640302613480055
+fbeta: 0.640302613480055
+race:  Other
+precision: 0.6
+recall: 0.6
+fbeta: 0.6
+race:  Asian-Pac-Islander
+precision: 0.5172413793103449
+recall: 0.6
+fbeta: 0.5555555555555556
+race:  Amer-Indian-Eskimo
+precision: 0.6
+recall: 0.6
+fbeta: 0.6
+race:  Black
+precision: 0.4782608695652174
+recall: 0.6027397260273972
+fbeta: 0.5333333333333333
