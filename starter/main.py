@@ -131,9 +131,8 @@ async def exercise_function(data: Data):
                 data.native_country,
             ],
             # 'salary': ["",],
-        }
+        },
     )
-    print(df)
     X, _, _, _ = process_data(
         df,
         categorical_features=cat_features,
@@ -143,4 +142,4 @@ async def exercise_function(data: Data):
         lb=None,
     )
     pred = model.predict(X)
-    return {"saraly": pred}
+    return {"salary": float(pred)}
