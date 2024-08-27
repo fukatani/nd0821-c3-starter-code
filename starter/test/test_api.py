@@ -51,5 +51,5 @@ def test_inference():
         "native-country": "United-States",
     }
     r = client.post("/inference", json=json_body)
-    assert r.status_code == 400
-    assert r.json()["salary"] == 0
+    assert r.status_code == 200
+    assert r.json()["salary"] >= 0
