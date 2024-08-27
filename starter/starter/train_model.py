@@ -62,7 +62,7 @@ with open("model/train_metrics.yaml", "w") as f:
     yaml.dump(metrics, f, encoding="utf-8")
 
 # add data slicing
-with pathlib.Path("result/slice_output.txt").open("w") as f:
+with pathlib.Path("results/slice_output.txt").open("w") as f:
     for race in test["race"].unique():
         sliced_test = test[test["race"] == race]
         X_test, y_test, _, _ = process_data(
