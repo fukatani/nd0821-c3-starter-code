@@ -4,7 +4,7 @@ from fastapi import FastAPI, HTTPException
 import pandas
 from pydantic import BaseModel, Field
 
-from starter.starter.ml.data import process_data
+from starter.ml.data import process_data
 
 app = FastAPI()
 model = pickle.load(open("model/trained_model.pkl", "rb"))
@@ -31,6 +31,29 @@ class Data(BaseModel):
     capital_loss: int = Field(alias="capital-loss")
     hours_per_week: int = Field(alias="hours-per-week")
     native_country: str = Field(alias="native-country")
+
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "age": 20,
+                    "workclass": "State-gov",
+                    "fnlgt": 77516,
+                    "education": "HS-grad",
+                    "education-num": 9,
+                    "marital-status": "Divorced",
+                    "occupation": "Handlers-cleaners",
+                    "relationship": "Not-in-family",
+                    "race": "Asian-Pac-Islander",
+                    "sex": "Male",
+                    "capital-gain": 2174,
+                    "capital-loss": 0,
+                    "hours-per-week": 40,
+                    "native-country": "United-States",
+                }
+            ]
+        }
+    }
 
 
 @app.post("/inference/")
@@ -65,23 +88,52 @@ async def exercise_function(data: Data):
 
     df = pandas.DataFrame(
         {
-            'age': [data.age,],
-            'workclass': [data.workclass,],
-            'fnlgt': [data.fnlgt,],
-            'education': [data.education,],
-            'education-num': [data.education_num,],
-            'marital-status': [data.marital_status,],
-            'occupation': [data.occupation,],
-            'relationship': [data.relationship,],
-            'race': [data.race,],
-            'sex': [data.sex,],
-            'capital-gain': [data.capital_gain,],
-            'capital-loss': [data.capital_loss,],
-            'hours-per-week': [data.hours_per_week,],
-            'native-country': [data.native_country,],
+            "age": [
+                data.age,
+            ],
+            "workclass": [
+                data.workclass,
+            ],
+            "fnlgt": [
+                data.fnlgt,
+            ],
+            "education": [
+                data.education,
+            ],
+            "education-num": [
+                data.education_num,
+            ],
+            "marital-status": [
+                data.marital_status,
+            ],
+            "occupation": [
+                data.occupation,
+            ],
+            "relationship": [
+                data.relationship,
+            ],
+            "race": [
+                data.race,
+            ],
+            "sex": [
+                data.sex,
+            ],
+            "capital-gain": [
+                data.capital_gain,
+            ],
+            "capital-loss": [
+                data.capital_loss,
+            ],
+            "hours-per-week": [
+                data.hours_per_week,
+            ],
+            "native-country": [
+                data.native_country,
+            ],
             # 'salary': ["",],
-         }
+        }
     )
+    print(df)
     X, _, _, _ = process_data(
         df,
         categorical_features=cat_features,
