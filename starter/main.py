@@ -59,9 +59,13 @@ class Data(BaseModel):
 @app.post("/inference/")
 async def exercise_function(data: Data):
     if data.capital_gain < 0:
-        raise HTTPException(status_code=400, detail="capital-gain must not be negative")
+        raise HTTPException(
+            status_code=400, detail="capital-gain must not be negative"
+        )
     if data.capital_loss < 0:
-        raise HTTPException(status_code=400, detail="capital-loss must not be negative")
+        raise HTTPException(
+            status_code=400, detail="capital-loss must not be negative"
+        )
     if data.hours_per_week < 0 or data.hours_per_week > 168:
         raise HTTPException(
             status_code=400, detail="hours-per-week must be between 0 and 168"
