@@ -17,16 +17,16 @@ stages:
       md5: 5eb5d1a4862601d030cce8c291532512
       size: 3808816
   train_model:
-    cmd: python starter/train_model.py
+    cmd: python training/train_model.py
     deps:
     - path: data/cleaned_census.csv
       hash: md5
       md5: 5eb5d1a4862601d030cce8c291532512
       size: 3808816
-    - path: starter/train_model.py
+    - path: training/train_model.py
       hash: md5
-      md5: aa5c93868ef1e1a4814f3660dbeb9f51
-      size: 2413
+      md5: 0e628491713f95b76587bd9ecabde371
+      size: 2415
     outs:
     - path: model/encoder.pkl
       hash: md5
@@ -34,9 +34,9 @@ stages:
       size: 2104
     - path: model/train_metrics.yaml
       hash: md5
-      md5: 46a823ccc0fde34e2ef30c154fc2d355
-      size: 71
+      md5: f228654b9ca340d1061465c56b0350ed
+      size: 83
     - path: model/trained_model.pkl
       hash: md5
-      md5: c452e245a62c81278bef7f0a1d44ff3d
-      size: 603803
+      md5: 40caf4dd3bdcc8dece223cbb3bb08751
+      size: 604443
