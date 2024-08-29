@@ -31,9 +31,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    - name: dvc add remote
-      run: |
-        dvc remote add -d gcs gs://udacity-test-0825/operation3
     - name: dvc pull
       run: |
         dvc pull
