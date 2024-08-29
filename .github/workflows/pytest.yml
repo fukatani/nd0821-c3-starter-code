@@ -6,16 +6,37 @@ jobs:
   PythonPytest:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: starter
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        project_id: 'noble-district-116323'
+        workload_identity_provider: 'projects/532522952365/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+        service_account: 'github-udacity@noble-district-116323.iam.gserviceaccount.com'
+
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: '3.10'
     - name: Install dependencies
       run: |
-        pip install pytest
+        pip install -r requirements.txt
+    - name: dvc add remote
+      run: |
+        dvc remote add -d gcs gs://udacity-test-0825/operation3
+    - name: dvc pull
+      run: |
+        dvc pull
     - name: Analysing the code with flake8
       run: |
         python -m pytest
