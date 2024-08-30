@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    - name: dvc pull
+    - name: dvc pull model
       run: |
         dvc pull
     - name: Analysing the code with flake8
