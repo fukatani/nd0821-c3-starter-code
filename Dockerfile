@@ -5,4 +5,5 @@ COPY starter/requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . ./
 WORKDIR /usr/src/app/starter
+RUN dvc pull model
 CMD exec uvicorn main:app --port=$PORT
