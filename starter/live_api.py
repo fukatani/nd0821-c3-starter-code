@@ -13,7 +13,8 @@ headers = {
 }
 
 response = requests.post(
-    "https://nd0821-c3-starter-code2-532522952365.us-central1.run.app/inference/",
+    "https://nd0821-c3-starter-code2-532522952365.us-central1.run.app/"
+    "inference/",
     headers=headers,
     json={
         "age": 20,
