@@ -5,4 +5,4 @@ COPY starter/requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . ./
 WORKDIR /usr/src/app/starter
-CMD exec uvicorn main:app --port=$PORT
+CMD exec uvicorn main:app --host=0.0.0.0 --port=$PORT
