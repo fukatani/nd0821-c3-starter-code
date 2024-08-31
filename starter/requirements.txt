@@ -12,3 +12,4 @@ jupyter
 ydata_profiling
 flake8
 black
+google-auth

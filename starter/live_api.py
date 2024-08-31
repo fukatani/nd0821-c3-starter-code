@@ -1,7 +1,20 @@
+import google.auth
+from google.auth.transport.requests import Request
 import requests
 
+credentials, project_id = google.auth.default()
+credentials.refresh(Request())
+token = credentials.token
+# print(token)
+
+headers = {
+    "Authorization": f"Bearer {token}",
+    "Content-Type": "application/json"
+}
+
 response = requests.post(
-    "http://127.0.0.1:7000/inference/",
+    "https://nd0821-c3-starter-code2-532522952365.us-central1.run.app/inference/",
+    headers=headers,
     json={
         "age": 20,
         "capital-gain": 2174,
