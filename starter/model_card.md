@@ -6,6 +6,9 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
 
 DecisionTreeClassifier which predict whether income exceeds $50K/yr based on census data.
 Model was trained with [Census Bureau data](https://archive.ics.uci.edu/dataset/20/census+income)
+Hyperparamter:
+ - criterion is 'gini'
+ - max_depth is None
 
 ## Intended Use
 
